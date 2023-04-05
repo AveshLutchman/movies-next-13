@@ -1,0 +1,81 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator zod {
+  provider = "zod-prisma-types"
+  output   = "../validation/generated"
+  useMultipleFiles = true
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+type MovieAwards {
+  nominations Int
+  text        String
+  wins        Int
+}
+
+type MovieImdb {
+  id     Int
+  /// Multiple data types found: String: 0.3%, Float: 99.7% out of 1000 sampled entries
+  rating Json
+  /// Multiple data types found: String: 0.3%, Int: 99.7% out of 1000 sampled entries
+  votes  Json
+}
+
+type MovieTomatoes {
+  boxOffice   String?
+  consensus   String?
+  critic      MovieTomatoesCritic?
+  dvd         DateTime?             @db.Date
+  fresh       Int?
+  lastUpdated DateTime              @db.Date
+  production  String?
+  rotten      Int?
+  viewer      MovieTomatoesViewer
+  website     String?
+}
+
+type MovieTomatoesCritic {
+  meter      Int?
+  numReviews Int
+  rating     Float?
+}
+
+type MovieTomatoesViewer {
+  meter      Int?
+  numReviews Int
+  rating     Float
+}
+
+model movie {
+  id                 String          @id @default(auto()) @map("_id") @db.ObjectId
+  awards             MovieAwards
+  cast               String[]
+  countries          String[]
+  directors          String[]
+  fullplot           String?
+  genres             String[]
+  imdb               MovieImdb
+  languages          String[]
+  lastupdated        String
+  metacritic         Int?
+  num_mflix_comments Int
+  plot               String?
+  poster             String?
+  rated              String?
+  released           DateTime?       @db.Date
+  runtime            Int?
+  title              String
+  tomatoes           MovieTomatoes?
+  type               String
+  writers            String[]
+  /// Multiple data types found: String: 0.1%, Int: 99.9% out of 1000 sampled entries
+  year               Json
+
+  @@map("movies")
+}

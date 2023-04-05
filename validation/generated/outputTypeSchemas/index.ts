@@ -1,0 +1,16 @@
+export { movieArgsSchema } from './movieArgsSchema';
+export { MovieTomatoesArgsSchema } from './MovieTomatoesArgsSchema';
+export { movieFindFirstArgsSchema } from './movieFindFirstArgsSchema';
+export { movieFindFirstOrThrowArgsSchema } from './movieFindFirstOrThrowArgsSchema';
+export { movieFindManyArgsSchema } from './movieFindManyArgsSchema';
+export { movieAggregateArgsSchema } from './movieAggregateArgsSchema';
+export { movieGroupByArgsSchema } from './movieGroupByArgsSchema';
+export { movieFindUniqueArgsSchema } from './movieFindUniqueArgsSchema';
+export { movieFindUniqueOrThrowArgsSchema } from './movieFindUniqueOrThrowArgsSchema';
+export { movieCreateArgsSchema } from './movieCreateArgsSchema';
+export { movieUpsertArgsSchema } from './movieUpsertArgsSchema';
+export { movieCreateManyArgsSchema } from './movieCreateManyArgsSchema';
+export { movieDeleteArgsSchema } from './movieDeleteArgsSchema';
+export { movieUpdateArgsSchema } from './movieUpdateArgsSchema';
+export { movieUpdateManyArgsSchema } from './movieUpdateManyArgsSchema';
+export { movieDeleteManyArgsSchema } from './movieDeleteManyArgsSchema';
