@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  /* --aa-overlay-color-rgb: 140,140,140; */
+  --aa-background-color-rgb: 20, 20, 20 ;
+  --aa-text-color-rgb: 220, 165, 76;
+  --aa-input-background-color-rgb: 100, 100, 100;
+  --aa-panel-border-color-rgb: 220, 165, 76;
+  --aa-input-border-color-rgb: 220, 165, 76;
+  --aa-icon-color-rgb: 220, 165, 76;
+  --aa-primary-color-rgb: 220, 165, 76;
+  --aa-selected-color-rgb: 220, 165, 76;
+  --aa-scrollbar-track-background-color-rgb: 20, 20, 20 ;
+  --aa-scrollbar-thumb-background-color-rgb: 220, 165, 76;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  width: 100%;
+	height: 100%;
+  overflow-x: hidden;
+}

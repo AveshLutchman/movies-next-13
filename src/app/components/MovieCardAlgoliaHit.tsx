@@ -57,7 +57,9 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-type hitProps = {
+const imageNotFound = "/image-not-found.svg";
+
+type AlgoliaHit = {
   hit: {
     _id: {
       $oid: string;
@@ -74,9 +76,7 @@ type hitProps = {
   };
 };
 
-const imageNotFound = "/image-not-found.svg";
-
-export function MovieCardAlgolia({ hit }: hitProps) {
+export function MovieCardAlgolia({ hit }: AlgoliaHit) {
   const { classes } = useStyles();
 
   return (
@@ -90,18 +90,18 @@ export function MovieCardAlgolia({ hit }: hitProps) {
       >
         <Image src={hit.poster || imageNotFound} alt={hit.title} className={clsx(classes.image)} fill />
         <div>
-          <Text
-            className={clsx(classes.category, "group-hover/card:invisible")}
-            size="xs"
-          >
-            {hit.genres}
-          </Text>
           <Title
             order={3}
             className={clsx(classes.title, "group-hover/card:invisible")}
           >
             {hit.title}
           </Title>
+          <Text
+            className={clsx(classes.category, "group-hover/card:invisible")}
+            size="xs"
+          >
+            {hit.genres?.join(' ')}
+          </Text>
         </div>
       </Paper>
     </Link>

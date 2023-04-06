@@ -2,10 +2,10 @@
 
 import { useDebouncedValue } from "@mantine/hooks";
 import { type ChangeEvent, useCallback, useEffect, useState, type KeyboardEvent } from "react";
-import { type movie, movieSchema } from "validation/generated";
+import { type movie, movieSchema } from "validation/modelSchema";
 import { createZodFetcher } from "zod-fetch";
 import { MovieCard } from "./components/MovieCard";
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 const fetchWithZod = createZodFetcher();
 

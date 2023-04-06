@@ -11,7 +11,7 @@ export const searchClient = algoliasearch(
 
 const AlgoliaWrapper = ({ children }: { children: ReactNode }) => {
   return (
-    <InstantSearch searchClient={searchClient} indexName="movies">
+    <InstantSearch searchClient={searchClient} indexName="movies_title_asc">
       {children}
     </InstantSearch>
   );

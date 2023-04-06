@@ -1,4 +1,6 @@
+import "@algolia/autocomplete-theme-classic/dist/theme.css";
 import "../styles/globals.css";
+
 import RootLayoutClient from "./components/RootLayoutClient";
 import { Oswald } from "next/font/google";
 import { type ReactNode } from "react";
