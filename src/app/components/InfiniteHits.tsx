@@ -23,7 +23,7 @@ const InfiniteHits = ({
 
   return (
     <div className="ais-InfiniteHits" >
-      <ul className="ais-InfiniteHits-list grid grid-cols-1 place-items-center md:grid-cols-4 xl:grid-cols-6">
+      <ul className="ais-InfiniteHits-list grid grid-cols-1 place-items-center md:grid-cols-4">
         {hits.map((hit) => (
           <li key={hit.objectID} className="ais-InfiniteHits-item">
             <HitComponent hit={hit} />

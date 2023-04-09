@@ -1,60 +1,18 @@
-import { createStyles, Paper, Text, Title, rem, clsx } from "@mantine/core";
+import { createStyles, rem } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
-  card: {
-    height: rem(300),
-    width: rem(200),
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-    position: "relative",
-    mixBlendMode: "difference",
-    cursor: "pointer",
-    overflow: "hidden",
-    transition: "transform 150ms ease",
+  image:{
+    backgroundColor: theme.colors.violet[8],
+    borderRadius: rem(10),
+    transition: 'opacity 0.25s linear 0.25s, filter 0.25s linear',
 
-    "&:hover": {
-      transform: "scale(1.02)",
-    },
-
-  },
-  image: {
-    content: '""',
-    position: "absolute",
-    top: 0,
-    left: 0,
-    zIndex: -1,
-    width: "100%",
-    height: "100%",
-    filter: "grayscale(100%) opacity(0.5)",
-    backgroundSize: "125%",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    transition: "filter 300ms ease, backgroundSize 300ms ease",
-
-    "&:hover": {
-      filter: "grayscale(50%) opacity(1)",
-      backgroundSize: "150%",
-    },
-  },
-  title: {
-    fontFamily: `Greycliff CF ${theme.fontFamily || ""}`,
-    fontWeight: 900,
-    color: theme.black[7],
-    lineHeight: 1.2,
-    fontSize: rem(20),
-    marginTop: theme.spacing.xs,
-  },
-
-  category: {
-    color: theme.black[2],
-    opacity: 0.7,
-    fontWeight: 700,
-    textTransform: "uppercase",
-  },
+    '&:hover':{
+      opacity: 0.4,
+      filter: 'blur(10px)',
+    }
+  }
 }));
 
 const imageNotFound = "/image-not-found.svg";
@@ -65,6 +23,7 @@ type AlgoliaHit = {
       $oid: string;
     };
     title: string;
+    type: string;
     plot: string;
     genres: Array<string>;
     cast: Array<string>;
@@ -81,29 +40,24 @@ export function MovieCardAlgolia({ hit }: AlgoliaHit) {
 
   return (
     <Link href={`/movies/[id]`} as={`/movies/${hit._id.$oid}`}>
-      <Paper
-        shadow="md"
-        p="xl"
-        mt="lg"
-        radius="md"
-        className={clsx(classes.card, "group/card")}
-      >
-        <Image src={hit.poster || imageNotFound} alt={hit.title} className={clsx(classes.image)} fill />
-        <div>
-          <Title
-            order={3}
-            className={clsx(classes.title, "group-hover/card:invisible")}
-          >
+      <div className="card w-72 aspect-[4/5] bg-base-300 shadow-xl mt-10 hover:scale-105 transition-transform duration-150 ease-in-out">
+        <figure>
+          <Image src={hit.poster || imageNotFound} alt={hit.title} className={classes.image} fill/>
+        </figure>
+
+        <div className="card-body text-primary-content">
+          <h2 className="card-title justify-between">
             {hit.title}
-          </Title>
-          <Text
-            className={clsx(classes.category, "group-hover/card:invisible")}
-            size="xs"
-          >
-            {hit.genres?.join(' ')}
-          </Text>
+            <div className="badge-secondary badge">{hit.type}</div>
+          </h2>
+          <p>{hit.plot}</p>
+          <div className="card-actions justify-end">
+            {hit.genres && hit.genres.map(v=>
+              <div className="badge-outline badge-accent badge" key={hit.title + v}>{v}</div>
+            )}
+          </div>
         </div>
-      </Paper>
+      </div>
     </Link>
   );
 }
