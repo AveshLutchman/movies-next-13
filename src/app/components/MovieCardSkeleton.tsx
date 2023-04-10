@@ -1,4 +1,4 @@
-import { rem, Skeleton } from "@mantine/core";
+import { Skeleton } from "@mantine/core";
 import { type ForwardedRef, forwardRef } from "react";
 
 const MovieCardSkeleton = forwardRef(function MovieCardSkeleton(props, ref: ForwardedRef<HTMLDivElement>) {

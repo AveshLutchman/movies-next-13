@@ -13,7 +13,6 @@ const oswald = Oswald({
 
 type Props = {
   children: ReactNode;
-  modal: ReactNode;
 };
 
 export const metadata: Metadata = {
@@ -23,12 +22,11 @@ export const metadata: Metadata = {
   icons: "/favicon.ico",
 };
 
-export default function RootLayout({ children, modal }: Props) {
+export default function Default({ children }: Props) {
   return (
     <html lang="en">
       <body id="app" className={oswald.className}>
         <RootLayoutClient>
-          {modal}
           {children}
         </RootLayoutClient>
       </body>

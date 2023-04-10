@@ -39,7 +39,7 @@ export function MovieCardAlgolia({ hit }: AlgoliaHit) {
   const { classes } = useStyles();
 
   return (
-    <Link href={`/movies/[id]`} as={`/movies/${hit._id.$oid}`}>
+    <Link href={`/movie/[id]`} as={`/movie/${hit._id.$oid}`}>
       <div className="card w-72 aspect-[4/5] bg-base-300 shadow-xl mt-10 hover:scale-105 transition-transform duration-150 ease-in-out">
         <figure>
           <Image src={hit.poster || imageNotFound} alt={hit.title} className={classes.image} fill/>

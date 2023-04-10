@@ -3,7 +3,6 @@
 import {
   createElement,
   Fragment,
-  Suspense,
   useEffect,
   useMemo,
   useRef,
