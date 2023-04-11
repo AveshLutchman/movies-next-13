@@ -20,7 +20,7 @@ const useStyles = createStyles((theme) => ({
     },
 
     '&:hover::before': {
-      filter: 'grayscale(50%) opacity(1)',
+      filter: 'grayscale(0)',
       backgroundSize: '150%',
     },
 
@@ -36,7 +36,7 @@ const useStyles = createStyles((theme) => ({
       zIndex: -1,
       width: '100%',
       height: '100%',
-      filter: 'grayscale(100%) opacity(0.5)',
+      filter: 'grayscale(100%)',
       backgroundSize: '125%',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
