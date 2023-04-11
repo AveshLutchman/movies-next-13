@@ -14,7 +14,7 @@ const Movie = ({ movie }: { movie: movie }) => {
         alt={movie.title || ""}
         width={250}
         height={380}
-        className="self-start rounded"
+        className="self-start rounded mx-auto"
       />
       <aside className={styles.details}>
         <h3>
