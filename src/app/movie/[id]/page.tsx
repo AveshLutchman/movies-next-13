@@ -4,16 +4,16 @@ import styles from "./styles.module.css";
 import MoviePlot from "~/app/components/MoviePlot";
 import Movie from "~/app/components/Movie";
 
-// export async function generateStaticParams() {
-//   const movies = await prisma.movie.findMany({
-//     select: { id: true },
-//     take: 100,
-//   });
+export async function generateStaticParams() {
+  const movies = await prisma.movie.findMany({
+    select: { id: true },
+    take: 100,
+  });
 
-//   return movies.map((movie) => ({
-//     movie: movie.id,
-//   }));
-// }
+  return movies.map((movie) => ({
+    movie: movie.id,
+  }));
+}
 
 
 export default async function Page({ params }: { params: { id: string } }) {
