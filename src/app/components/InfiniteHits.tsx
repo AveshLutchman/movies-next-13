@@ -1,6 +1,6 @@
 import { useIntersection } from "@mantine/hooks";
 import { useEffect } from "react";
-import { useInfiniteHits, UseInfiniteHitsProps } from "react-instantsearch-hooks-web";
+import { useInfiniteHits } from "react-instantsearch-hooks-web";
 import MovieCardSkeleton from "./MovieCardSkeleton";
 
 const InfiniteHits = ({

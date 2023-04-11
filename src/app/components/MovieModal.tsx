@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 const MovieModal = ({children}:{children:React.ReactNode}) => {
   const router = useRouter()
 
-  const closeModal = useCallback(()=> router.back(),[])
+  const closeModal = useCallback(()=> router.back(),[router])
 
   return (
     <Modal size={'lg'} opened={true} onClose={closeModal} scrollAreaComponent={ScrollArea.Autosize}>

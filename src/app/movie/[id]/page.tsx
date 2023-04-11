@@ -1,7 +1,4 @@
-import Image from "next/image";
 import { prisma } from "~/server/db";
-import styles from "./styles.module.css";
-import MoviePlot from "~/app/components/MoviePlot";
 import Movie from "~/app/components/Movie";
 
 export async function generateStaticParams() {

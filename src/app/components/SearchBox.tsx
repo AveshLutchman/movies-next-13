@@ -1,18 +1,18 @@
-import { useDebouncedState, useDebouncedValue } from '@mantine/hooks';
-import React, { useEffect, useState } from "react";
+import { useDebouncedValue } from '@mantine/hooks';
+import { useEffect, useState } from "react";
 import {
   useSearchBox,
   type UseSearchBoxProps,
 } from "react-instantsearch-hooks-web";
 
 const SearchBox = (props: UseSearchBoxProps) => {
-  const { query, refine } = useSearchBox(props);
+  const { refine } = useSearchBox(props);
   const [value, setValue] = useState('');
   const [debounced] = useDebouncedValue(value, 300);
 
   useEffect(() => {
     refine(debounced)
-  }, [debounced])
+  }, [debounced, refine])
 
   return (
     <div className="form-control mx-auto w-full max-w-xs">

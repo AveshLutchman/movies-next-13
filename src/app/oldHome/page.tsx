@@ -1,6 +1,5 @@
 "use client";
 
-import { useDebouncedValue } from "@mantine/hooks";
 import { type ChangeEvent, useCallback, useEffect, useState, type KeyboardEvent } from "react";
 import { type movie, movieSchema } from "validation/modelSchema";
 import { createZodFetcher } from "zod-fetch";
@@ -11,7 +10,6 @@ const fetchWithZod = createZodFetcher();
 
 export default function Page() {
   const [query, setQuery] = useState('')
-  const debouncedQuery = useDebouncedValue(query, 200)
   const [movies, setMovies] = useState<movie[]>([])
   const router = useRouter();
   const searchParams = useSearchParams();
