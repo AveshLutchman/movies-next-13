@@ -2,6 +2,7 @@ import type { movie } from "@prisma/client";
 import Image from "next/image";
 import styles from "./styles.module.css";
 import MoviePlot from "./MoviePlot";
+import clsx from "clsx";
 
 const imageNotFound = "/image-not-found.svg";
 const toUniqueArr = (arr: Array<string>) => [...new Set(arr)].join(", ");
@@ -16,7 +17,7 @@ const Movie = ({ movie }: { movie: movie }) => {
         height={380}
         className="self-start rounded mx-auto"
       />
-      <aside className={styles.details}>
+      <aside className={clsx(styles.details, 'md:px-10 md:py-2')}>
         <h3>
           {movie.title}
           <small>
