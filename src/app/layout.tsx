@@ -18,9 +18,8 @@ type Props = {
 
 export const metadata: Metadata = {
   title: "Movies",
-  description: "Learning some Next13",
+  description: "Learning some Algolia",
   viewport: "width=device-width, initial-scale=1",
-  icons: "/favicon.ico",
 };
 
 export default function RootLayout({ children, modal }: Props) {

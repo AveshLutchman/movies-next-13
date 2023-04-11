@@ -1,9 +1,17 @@
-import React from 'react'
-
 import { prisma } from "~/server/db";
 import MovieModal from "~/app/components/MovieModal";
 import Movie from "~/app/components/Movie";
 
+export async function generateStaticParams() {
+  const movies = await prisma.movie.findMany({
+    select: { id: true },
+    take: 100,
+  });
+
+  return movies.map((movie) => ({
+    movie: movie.id,
+  }));
+}
 
 export default async function Page({ params }: { params: { id: string } }) {
   const { id } = params;

@@ -12,7 +12,6 @@ export async function generateStaticParams() {
   }));
 }
 
-
 export default async function Page({ params }: { params: { id: string } }) {
   const { id } = params;
 
