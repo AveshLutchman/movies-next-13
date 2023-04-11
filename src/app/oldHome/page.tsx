@@ -4,12 +4,12 @@ import { useDebouncedValue } from "@mantine/hooks";
 import { type ChangeEvent, useCallback, useEffect, useState, type KeyboardEvent } from "react";
 import { type movie, movieSchema } from "validation/modelSchema";
 import { createZodFetcher } from "zod-fetch";
-import { MovieCard } from "./components/MovieCard";
+import { MovieCard } from "../components/MovieCard";
 import { useRouter, useSearchParams } from 'next/navigation';
 
 const fetchWithZod = createZodFetcher();
 
-function Page() {
+export default function Page() {
   const [query, setQuery] = useState('')
   const debouncedQuery = useDebouncedValue(query, 200)
   const [movies, setMovies] = useState<movie[]>([])
@@ -46,7 +46,6 @@ function Page() {
       <div className="form-control mx-auto w-full max-w-xs">
         <label className="label">
           <span className="label-text">Search movie</span>
-          {/* <span className="label-text-alt">Top Right label</span> */}
         </label>
         <input
           type="text"
@@ -56,10 +55,6 @@ function Page() {
           onChange={handleQueryChange}
           onKeyUp={handleEnterKey}
         />
-        <label className="label">
-          <span className="label-text-alt">Bottom Left label</span>
-          <span className="label-text-alt">Bottom Right label</span>
-        </label>
       </div>
       <section>
         <div className="grid grid-cols-4 xl:grid-cols-6 place-items-center">
